@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">PhishApp</string>
+
+    <!-- Login/Register Fragment Strings -->
+    <string name="login_reg_welcome">Welcome!</string>
+    <string name="loginfragment_instruction">Please log in or register</string>
+    <string name="registerfragment_instruction">Please register for an account</string>
+    <string name="registerfragment_username">Username</string>
+    <string name="registerfragment_firstname">First Name</string>
+    <string name="registerfragment_lastname">Last Name</string>
+    <string name="login_reg_email">Email</string>
+    <string name="login_reg_password">Password</string>
+    <string name="login_reg_register">REGISTER</string>
+    <string name="loginfragment_login">LOGIN</string>
+
+    <!-- Success Fragment Strings -->
+    <string name="successfragment_success">Login Successful</string>
+    <string name="successfragment_username">Username</string>
+    <string name="successfragment_password">Password</string>
+    <string name="credentials_key">credentials_key</string>
+    <string name="successfragment_logout">LOGOUT</string>
+
+    <!-- Navigation Bar Strings -->
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">PhishApp</string>
+    <string name="nav_header_subtitle">TCSS 450 Labs</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="nav_home_title">Home</string>
+    <string name="nav_blog_posts_title">Blog Posts</string>
+    <string name="nav_set_lists">Set Lists</string>
+
+    <!-- BlogPost/SetListPost Strings -->
+    <string name="full_post">Full Post</string>
+
+    <!-- Lab 5 strings -->
+    <string name="action_logout">Logout</string>
+</resources>
