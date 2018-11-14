@@ -30,8 +30,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7b5201c-ecf0-480d-ad78-208346b4afdf" name="Default" comment="Lab 5 Firebase Cloud messageing gradle builds working.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/ChatFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_chat.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
@@ -40,21 +38,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/HomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/HomeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/LoginFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/LoginFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/SuccessFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/SuccessFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/utils/MyFirebaseMessagingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/utils/MyFirebaseMessagingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_home_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_home_drawer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/endpoints.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/endpoints.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/keys.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/keys.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -77,33 +62,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ChatFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/ChatFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="157" selection-start-line="157" selection-end-line="157" />
-              <folding>
-                <element signature="e#1876#1913#0" expanded="true" />
-                <element signature="e#1982#2018#0" expanded="true" />
-                <element signature="e#2060#2096#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="48" column="37" lean-forward="true" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
-              <folding>
-                <element signature="e#1068#1069#0" expanded="true" />
-                <element signature="e#1120#1121#0" expanded="true" />
-                <element signature="e#1854#1889#0" expanded="true" />
-                <element signature="e#1929#1977#0" expanded="true" />
-                <element signature="e#1572#1573#0" expanded="true" />
-                <element signature="e#1615#1616#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="418">
+              <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -111,34 +74,50 @@
       <file leaf-file-name="HomeActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/HomeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="67" column="60" selection-start-line="67" selection-start-column="60" selection-end-line="67" selection-end-column="60" />
+            <state relative-caret-position="152">
+              <caret line="64" column="46" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2394#2429#0" expanded="true" />
-                <element signature="e#2788#2836#0" expanded="true" />
+                <element signature="e#2446#2481#0" expanded="true" />
+                <element signature="e#2636#2666#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SuccessFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LoginFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/LoginFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="717">
+              <caret line="215" column="38" selection-start-line="215" selection-start-column="38" selection-end-line="215" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChatFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/ChatFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-689">
+              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+              <folding>
+                <element signature="e#1874#1911#0" expanded="true" />
+                <element signature="e#1980#2016#0" expanded="true" />
+                <element signature="e#2058#2094#0" expanded="true" />
+                <element signature="e#2294#2325#0" expanded="true" />
+                <element signature="e#2355#2392#0" expanded="true" />
+                <element signature="e#2422#2459#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SuccessFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/SuccessFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="42" column="78" selection-start-line="42" selection-start-column="78" selection-end-line="42" selection-end-column="78" />
+            <state relative-caret-position="161">
+              <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
               <folding>
-                <element signature="e#1184#1214#0" expanded="true" />
+                <element signature="e#1133#1163#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="keys.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/keys.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -2459,10 +2438,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/LoginFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/ChatFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/keys.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/HomeActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/SuccessFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -2477,6 +2456,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2504,21 +2485,19 @@
               <item name="PhishApp" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="menu" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="PhishApp" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="menu" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="ProjectPane" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2705,46 +2684,44 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="826" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="826" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="Android Profiler" order="13" weight="0.32921812" />
-      <window_info id="Build Variants" order="3" sideWeight="0.5010225" side_tool="true" weight="0.12602535" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50143063" side_tool="true" weight="0.32921812" />
-      <window_info anchor="bottom" id="Logcat" order="10" sideWeight="0.4985694" visible="true" weight="0.32921812" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.32921812" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" weight="0.32960477" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39917696" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32921812" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32921812" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info id="Image Layers" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Build Variants" order="2" sideWeight="0.5010225" side_tool="true" weight="0.12602535" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" id="Preview" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32784638" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49928468" weight="0.32921812" />
-      <window_info id="Captures" order="4" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.3490701" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Gradle" order="6" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32876712" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32921812" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="7" visible="true" weight="0.32921812" />
+      <window_info id="Captures" order="2" weight="0.25" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.1695279" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32921812" />
+      <window_info anchor="right" id="Gradle" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" weight="0.32960477" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Build Variants" order="2" sideWeight="0.5010225" side_tool="true" weight="0.12602535" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.1695279" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" id="Preview" order="3" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info active="true" anchor="bottom" id="Logcat" order="7" visible="true" weight="0.32921812" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -2757,8 +2734,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" weight="0.32960477" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32921812" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32921812" />
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -2774,18 +2752,17 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info id="Captures" order="7" weight="0.25" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Preview" order="4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" weight="0.32960477" />
-      <window_info id="Captures" order="7" weight="0.25" />
       <window_info active="true" anchor="bottom" id="Logcat" order="11" visible="true" weight="0.32921812" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32876712" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="right" id="Gradle" order="6" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.1695279" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32921812" />
@@ -2795,6 +2772,7 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
     </layout-to-restore>
   </component>
@@ -2870,9 +2848,8 @@
         <state relative-caret-position="874">
           <caret line="217" column="50" selection-start-line="217" selection-start-column="50" selection-end-line="217" selection-end-column="50" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2394#2429#0" expanded="true" />
-            <element signature="e#2788#2836#0" expanded="true" />
+            <element signature="e#2446#2481#0" expanded="true" />
+            <element signature="e#2636#2666#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2888,13 +2865,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-55">
           <caret line="38" column="66" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
-          <folding>
-            <element signature="e#1268#1303#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="482">
           <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
@@ -2903,29 +2880,11 @@
           </folding>
         </state>
       </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/LoginFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
           <caret line="122" column="25" lean-forward="true" selection-start-line="122" selection-start-column="25" selection-end-line="122" selection-end-column="25" />
-          <folding>
-            <element signature="e#2088#2125#0" expanded="true" />
-            <element signature="e#2262#2298#0" expanded="true" />
-            <element signature="e#2334#2373#0" expanded="true" />
-            <element signature="e#2427#2463#0" expanded="true" />
-            <element signature="e#2522#2561#0" expanded="true" />
-            <element signature="e#3270#3301#0" expanded="true" />
-            <element signature="e#3331#3359#0" expanded="true" />
-            <element signature="e#3389#3422#0" expanded="true" />
-            <element signature="e#7651#7652#0" expanded="true" />
-            <element signature="e#7701#7702#0" expanded="true" />
-            <element signature="e#7836#7873#0" expanded="true" />
-            <element signature="e#8007#8043#0" expanded="true" />
-            <element signature="e#8142#8181#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2933,21 +2892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="915">
           <caret line="61" selection-start-line="61" selection-end-line="61" />
-          <folding>
-            <element signature="e#2088#2125#0" expanded="true" />
-            <element signature="e#2262#2298#0" expanded="true" />
-            <element signature="e#2334#2373#0" expanded="true" />
-            <element signature="e#2427#2463#0" expanded="true" />
-            <element signature="e#2522#2561#0" expanded="true" />
-            <element signature="e#3270#3301#0" expanded="true" />
-            <element signature="e#3331#3359#0" expanded="true" />
-            <element signature="e#3389#3422#0" expanded="true" />
-            <element signature="e#7651#7652#0" expanded="true" />
-            <element signature="e#7701#7702#0" expanded="true" />
-            <element signature="e#7836#7873#0" expanded="true" />
-            <element signature="e#8007#8043#0" expanded="true" />
-            <element signature="e#8142#8181#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3118,9 +3062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3156,6 +3097,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
           <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
@@ -3163,9 +3107,6 @@
             <element signature="e#839#868#0" expanded="true" />
           </folding>
         </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/endpoints.xml">
@@ -3204,23 +3145,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/LoginFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="215" column="38" lean-forward="true" selection-start-line="215" selection-start-column="38" selection-end-line="215" selection-end-column="38" />
-          <folding>
-            <element signature="e#2088#2125#0" expanded="true" />
-            <element signature="e#2262#2298#0" expanded="true" />
-            <element signature="e#2334#2373#0" expanded="true" />
-            <element signature="e#2427#2463#0" expanded="true" />
-            <element signature="e#2522#2561#0" expanded="true" />
-            <element signature="e#3270#3301#0" expanded="true" />
-            <element signature="e#3331#3359#0" expanded="true" />
-            <element signature="e#3389#3422#0" expanded="true" />
-            <element signature="e#7651#7652#0" expanded="true" />
-            <element signature="e#7701#7702#0" expanded="true" />
-            <element signature="e#7836#7873#0" expanded="true" />
-            <element signature="e#8007#8043#0" expanded="true" />
-            <element signature="e#8142#8181#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="717">
+          <caret line="215" column="38" selection-start-line="215" selection-start-column="38" selection-end-line="215" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -3233,49 +3159,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/ChatFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="157" selection-start-line="157" selection-end-line="157" />
+        <state relative-caret-position="-689">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
           <folding>
-            <element signature="e#1876#1913#0" expanded="true" />
-            <element signature="e#1982#2018#0" expanded="true" />
-            <element signature="e#2060#2096#0" expanded="true" />
+            <element signature="e#1874#1911#0" expanded="true" />
+            <element signature="e#1980#2016#0" expanded="true" />
+            <element signature="e#2058#2094#0" expanded="true" />
+            <element signature="e#2294#2325#0" expanded="true" />
+            <element signature="e#2355#2392#0" expanded="true" />
+            <element signature="e#2422#2459#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="48" column="37" lean-forward="true" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
-          <folding>
-            <element signature="e#1068#1069#0" expanded="true" />
-            <element signature="e#1120#1121#0" expanded="true" />
-            <element signature="e#1854#1889#0" expanded="true" />
-            <element signature="e#1929#1977#0" expanded="true" />
-            <element signature="e#1572#1573#0" expanded="true" />
-            <element signature="e#1615#1616#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="418">
+          <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/HomeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="67" column="60" selection-start-line="67" selection-start-column="60" selection-end-line="67" selection-end-column="60" />
+        <state relative-caret-position="152">
+          <caret line="64" column="46" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2394#2429#0" expanded="true" />
-            <element signature="e#2788#2836#0" expanded="true" />
+            <element signature="e#2446#2481#0" expanded="true" />
+            <element signature="e#2636#2666#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/tcss450/uw/edu/phishapp/SuccessFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="42" column="78" selection-start-line="42" selection-start-column="78" selection-end-line="42" selection-end-column="78" />
+        <state relative-caret-position="161">
+          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
           <folding>
-            <element signature="e#1184#1214#0" expanded="true" />
+            <element signature="e#1133#1163#0" expanded="true" />
           </folding>
         </state>
       </provider>

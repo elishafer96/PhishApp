@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity
 
         if (getIntent().getExtras() != null) {
             Log.d(TAG, "type of message: " + getIntent().getExtras().getString("type"));
-            mLoadFromChatNotification = getIntent().getExtras().getString("type").equals("msg");
+            mLoadFromChatNotification = "msg".equals(getIntent().getExtras().getString("type"));
         } else {
             Log.d(TAG, "NO MESSAGE");
         }
