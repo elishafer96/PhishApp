@@ -31,10 +31,14 @@
     <string name="nav_home_title">Home</string>
     <string name="nav_blog_posts_title">Blog Posts</string>
     <string name="nav_set_lists">Set Lists</string>
+    <string name="nav_global_chat">Global Chat</string>
 
     <!-- BlogPost/SetListPost Strings -->
     <string name="full_post">Full Post</string>
 
     <!-- Lab 5 strings -->
     <string name="action_logout">Logout</string>
+
+    <!-- Chat Fragment Strings -->
+    <string name="message_hint">Write a message</string>
 </resources>

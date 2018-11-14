@@ -8,4 +8,7 @@
     <string name="ep_get">get</string>
     <string name="ep_setlists">setlists</string>
     <string name="ep_recent">recent</string>
+    <string name="ep_with_token">with_token</string>
+    <string name="ep_messaging_base">messaging</string>
+    <string name="ep_messaging_send">send</string>
 </resources>

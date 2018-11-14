@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import tcss450.uw.edu.phishapp.model.Credentials;
 
@@ -13,10 +14,20 @@ public class MainActivity extends AppCompatActivity
 
     public static final int MIN_PASSWORD_LENGTH = 6;
 
+    private boolean mLoadFromChatNotification = false;
+    private static final String TAG = MainActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (getIntent().getExtras() != null) {
+            Log.d(TAG, "type of message: " + getIntent().getExtras().getString("type"));
+            mLoadFromChatNotification = getIntent().getExtras().getString("type").equals("msg");
+        } else {
+            Log.d(TAG, "NO MESSAGE");
+        }
 
         if (savedInstanceState == null) {
             if (findViewById(R.id.frame_main_container) != null) {
@@ -35,9 +46,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onLoginAttempt(final Credentials credentials) {
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-        Bundle args = new Bundle();
-        args.putSerializable(getString(R.string.credentials_key), credentials);
-        intent.putExtra("args", args);
+//        Bundle args = new Bundle();
+//        args.putSerializable(getString(R.string.credentials_key), credentials);
+//        intent.putExtra("args", args);
+        intent.putExtra(getString(R.string.credentials_key), credentials);
+        intent.putExtra(getString(R.string.keys_intent_notification_msg), mLoadFromChatNotification);
         startActivity(intent);
         finish();
     }

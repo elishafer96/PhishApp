@@ -13,4 +13,8 @@
     <item
         android:id="@+id/nav_setlists"
         android:title="@string/nav_set_lists" />
+
+    <item
+        android:id="@+id/nav_globalchat"
+        android:title="@string/nav_global_chat" />
 </menu>

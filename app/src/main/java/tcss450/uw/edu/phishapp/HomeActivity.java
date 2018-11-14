@@ -37,34 +37,48 @@ public class HomeActivity extends AppCompatActivity
         BlogPostFragment.OnFragmentInteractionListener,
         SetListFragment.OnListFragmentInteractionListener,
         SetListPostFragment.OnFragmentInteractionListener,
+        SuccessFragment.OnFragmentInteractionListener,
         WaitFragment.OnFragmentInteractionListener {
 
     private Credentials credentials;
+    private String mEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         if (savedInstanceState == null) {
             if (findViewById(R.id.home_fragment_container) != null) {
-                SuccessFragment sf = new SuccessFragment();
-                Bundle args = getIntent().getBundleExtra("args");
-                credentials = (Credentials) args.getSerializable(getString(R.string.credentials_key));
-                sf.setArguments(args);
+                Credentials credentials = (Credentials) getIntent()
+                        .getSerializableExtra(getString(R.string.credentials_key));
+                String emailAddress = mEmail = credentials.getEmail();
+                final Bundle args = new Bundle();
+                args.putString(getString(R.string.keys_email), emailAddress);
+
+                Fragment fragment;
+                if (getIntent().getBooleanExtra(getString(R.string.keys_intent_notification_msg),
+                                false)) {
+
+                    fragment = new ChatFragment();
+                } else {
+                    fragment = new SuccessFragment();
+                    fragment.setArguments(args);
+                }
+
                 getSupportFragmentManager().beginTransaction()
-                        .add(R.id.home_fragment_container, sf)
+                        .add(R.id.home_fragment_container, fragment)
                         .commit();
             }
         }
@@ -72,7 +86,7 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -142,24 +156,21 @@ public class HomeActivity extends AppCompatActivity
                     .onPreExecute(this::onWaitFragmentInteractionShow)
                     .onPostExecute(this::handleSetListGetOnPostExecute)
                     .build().execute();
+        } else if (id == R.id.nav_globalchat) {
+            SharedPreferences prefs = getSharedPreferences(getString(R.string.keys_shared_prefs),
+                    Context.MODE_PRIVATE);
+
+            String email = prefs.getString(getString(R.string.keys_prefs_email), "");
+            ChatFragment cf = new ChatFragment();
+            loadFragment(cf);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
     private void logout() {
-//        SharedPreferences prefs = getSharedPreferences(
-//                        getString(R.string.keys_shared_prefs),
-//                        Context.MODE_PRIVATE);
-//
-//        // Remove the saved credentials from StoredPrefs
-//        prefs.edit().remove(getString(R.string.keys_prefs_password)).apply();
-//        prefs.edit().remove(getString(R.string.keys_prefs_email)).apply();
-//
-//        finishAndRemoveTask();
-
         new DeleteTokenAsyncTask().execute();
     }
 
@@ -311,8 +322,13 @@ public class HomeActivity extends AppCompatActivity
         startActivity(browserIntent);
     }
 
-    // Deleting the InstanceId (Firebase token) must be done asynchronously. Good thing that we
-    // have something that allows us to do that.
+    @Override
+    public void onLogOutClicked() {
+        logout();
+    }
+
+    //     Deleting the InstanceId (Firebase token) must be done asynchronously. Good thing that we
+//     have something that allows us to do that.
     class DeleteTokenAsyncTask extends AsyncTask<Void, Void, Void> {
 
         @Override

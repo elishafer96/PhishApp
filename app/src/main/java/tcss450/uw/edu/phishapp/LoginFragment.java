@@ -66,10 +66,10 @@ public class LoginFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        SharedPreferences prefs = getActivity()
-                .getSharedPreferences(
+        SharedPreferences prefs = getActivity().getSharedPreferences(
                         getString(R.string.keys_shared_prefs),
                         Context.MODE_PRIVATE);
+
         // Retrieve the stored credentials from SharedPrefs
         if (prefs.contains(getString(R.string.keys_prefs_email)) &&
                 prefs.contains(getString(R.string.keys_prefs_password))) {
@@ -80,15 +80,46 @@ public class LoginFragment extends Fragment {
             emailEdit.setText(email);
             EditText passwordEdit = getActivity().findViewById(R.id.ET_loginfragment_password);
             passwordEdit.setText(password);
-//            logIn(email, password);
-            getFirebaseToken(email, password);
+            getFirebaseToken(emailEdit.getText().toString(), passwordEdit.getText().toString());
         }
     }
 
+    private void logIn(String email, String password) {
+        final Credentials credentials = new Credentials.Builder(email, password).build();
+
+        // Build the web service URL
+        Uri uri = new Uri.Builder()
+                .scheme("https")
+                .appendPath(getString(R.string.ep_base_url))
+                .appendPath(getString(R.string.ep_login))
+                .appendPath(getString(R.string.ep_with_token))
+                .build();
+
+        // Build the JSONObject
+        JSONObject msg = credentials.asJSONObject();
+        try {
+            msg.put("token", mFirebaseToken);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        mCredentials = credentials;
+
+        // Instantiate and execute the AsyncTask
+        // Feel free to add a handler for onPreExecution so that a progress bar
+        // is displayed or maybe disable buttons.
+        new SendPostAsyncTask.Builder(uri.toString(), msg)
+                .onPreExecute(this::handleLoginOnPre)
+                .onPostExecute(this::handleLoginOnPost)
+                .onCancelled(this::handleErrorsInTask)
+                .build().execute();
+    }
+
     private void onLoginClicked() {
-        EditText emailEdit = (EditText) getActivity().findViewById(R.id.ET_loginfragment_email);
-        EditText passwordEdit =
-                (EditText) getActivity().findViewById(R.id.ET_loginfragment_password);
+        EditText emailEdit = (EditText) getActivity()
+                .findViewById(R.id.ET_loginfragment_email);
+        EditText passwordEdit = (EditText) getActivity()
+                .findViewById(R.id.ET_loginfragment_password);
         boolean isValid = true;
 
         if (emailEdit.getText().length() == 0) {
@@ -104,57 +135,34 @@ public class LoginFragment extends Fragment {
         }
 
         if (isValid) {
-//            logIn(emailEdit.getText().toString(), passwordEdit.getText().toString());
             getFirebaseToken(emailEdit.getText().toString(), passwordEdit.getText().toString());
         }
     }
 
-    private void logIn(final String email, final String password) {
-        Credentials credentials = new Credentials
-                .Builder(email, password)
-                .build();
+    private void getFirebaseToken(final String email, final String password) {
+        mListener.onWaitFragmentInteractionShow();
 
-        // Build the web service URL
-        Uri uri = new Uri.Builder()
-                .scheme("https")
-                .appendPath(getString(R.string.ep_base_url))
-                .appendPath(getString(R.string.ep_login))
-                .build();
+        FirebaseMessaging.getInstance().subscribeToTopic("all");
+        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(task -> {
+            if (!task.isSuccessful()) {
+                Log.w("FCM: ", "getInstanceId failed", task.getException());
+                mListener.onWaitFragmentInteractionHide();
+                return;
+            }
 
-        // Build the JSONObject
-        JSONObject msg = credentials.asJSONObject();
+            mFirebaseToken = task.getResult().getToken();
 
-        mCredentials = credentials;
+            Log.d("FCM: ", mFirebaseToken);
 
-        // Instantiate and execute the AsyncTask
-        // Feel free to add a handler for onPreExecution so that a progress bar
-        // is displayed or maybe disable buttons.
-        new SendPostAsyncTask.Builder(uri.toString(), msg)
-                .onPreExecute(this::handleLoginOnPre)
-                .onPostExecute(this::handleLoginOnPost)
-                .onCancelled(this::handleErrorsInTask)
-                .build().execute();
-    }
-
-    private void saveCredentials(final Credentials credentials) {
-        SharedPreferences prefs = getActivity()
-                .getSharedPreferences(
-                        getString(R.string.keys_shared_prefs),
-                        Context.MODE_PRIVATE);
-
-        // Store the credentials in SharedPrefs
-        prefs.edit().putString(
-                getString(R.string.keys_prefs_email),
-                credentials.getEmail()).apply();
-        prefs.edit().putString(
-                getString(R.string.keys_prefs_password),
-                credentials.getPassword()).apply();
+            logIn(email, password);
+        });
     }
 
     /**
      * Handle the setup of the UI before the HTTP call to the webservice.
      */
     private void handleLoginOnPre() {
+//        mListener.onWaitFragmentInteractionShow();
 
     }
 
@@ -174,6 +182,7 @@ public class LoginFragment extends Fragment {
                 // Login was successful. Inform the Activity so it can do its thing.
                 saveCredentials(mCredentials);
                 mListener.onLoginAttempt(mCredentials);
+                return;
             } else {
                 // Login was unsuccessful. Don’t switch fragments and inform the user
                 ((EditText) getView().findViewById(R.id.ET_loginfragment_email))
@@ -201,24 +210,17 @@ public class LoginFragment extends Fragment {
         Log.e("ASYNCT_TASK_ERROR", result);
     }
 
-    private void getFirebaseToken(final String email, final String password) {
-        mListener.onWaitFragmentInteractionShow();
+    private void saveCredentials(final Credentials credentials) {
+        SharedPreferences prefs = getActivity().getSharedPreferences(
+                getString(R.string.keys_shared_prefs),
+                Context.MODE_PRIVATE);
 
-        //add this app on this device to listen for the topic all
-        FirebaseMessaging.getInstance().subscribeToTopic("all");
-
-        // The call to getInstanceId happens asynchronously. Task is an onCompleteListenere
-        // similar to a promise in JS.
-        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(task -> {
-            if (!task.isSuccessful()) {
-                Log.w("FCM: ", mFirebaseToken);
-                mListener.onWaitFragmentInteractionHide();
-                return;
-            }
-
-            // The helper method that initiates login service
-            logIn(email, password);
-        });
+        prefs.edit().putString(
+                getString(R.string.keys_prefs_email),
+                credentials.getEmail()).apply();
+        prefs.edit().putString(
+                getString(R.string.keys_prefs_password),
+                credentials.getPassword()).apply();
     }
 
     public interface OnFragmentInteractionListener
