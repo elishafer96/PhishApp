@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "84477278965",
+    "firebase_url": "https://lab5-fcm-eli96.firebaseio.com",
+    "project_id": "lab5-fcm-eli96",
+    "storage_bucket": "lab5-fcm-eli96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84477278965:android:06cb74104bf70ff2",
+        "android_client_info": {
+          "package_name": "tcss450.uw.edu.phishapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84477278965-rl3o4d7ld6m77ng8552ahu6s6mi3tijo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDKjBrvuI4O8Vkd0SP_nS5WAiGVDsB5rs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
