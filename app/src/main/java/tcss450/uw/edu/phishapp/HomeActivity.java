@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -16,10 +17,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -146,15 +150,17 @@ public class HomeActivity extends AppCompatActivity
     }
 
     private void logout() {
-        SharedPreferences prefs = getSharedPreferences(
-                        getString(R.string.keys_shared_prefs),
-                        Context.MODE_PRIVATE);
+//        SharedPreferences prefs = getSharedPreferences(
+//                        getString(R.string.keys_shared_prefs),
+//                        Context.MODE_PRIVATE);
+//
+//        // Remove the saved credentials from StoredPrefs
+//        prefs.edit().remove(getString(R.string.keys_prefs_password)).apply();
+//        prefs.edit().remove(getString(R.string.keys_prefs_email)).apply();
+//
+//        finishAndRemoveTask();
 
-        // Remove the saved credentials from StoredPrefs
-        prefs.edit().remove(getString(R.string.keys_prefs_password)).apply();
-        prefs.edit().remove(getString(R.string.keys_prefs_email)).apply();
-
-        finishAndRemoveTask();
+        new DeleteTokenAsyncTask().execute();
     }
 
     private void handleSetListGetOnPostExecute(final String result) {
@@ -303,5 +309,43 @@ public class HomeActivity extends AppCompatActivity
     public void onFullPostClicked(SetListPost setListPost) {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(setListPost.getURL()));
         startActivity(browserIntent);
+    }
+
+    // Deleting the InstanceId (Firebase token) must be done asynchronously. Good thing that we
+    // have something that allows us to do that.
+    class DeleteTokenAsyncTask extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            onWaitFragmentInteractionShow();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            SharedPreferences prefs = getSharedPreferences(
+                    getString(R.string.keys_shared_prefs),
+                    Context.MODE_PRIVATE);
+
+            prefs.edit().remove(getString(R.string.keys_prefs_password)).apply();
+            prefs.edit().remove(getString(R.string.keys_prefs_email)).apply();
+
+            try {
+                FirebaseInstanceId.getInstance().deleteInstanceId();
+            } catch (IOException e) {
+                Log.e("FCM", "Delete error!");
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            // Close the app
+            finishAndRemoveTask();
+        }
     }
 }

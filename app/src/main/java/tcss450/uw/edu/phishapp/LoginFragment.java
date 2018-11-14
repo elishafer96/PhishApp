@@ -13,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -27,6 +30,7 @@ public class LoginFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private Credentials mCredentials;
+    private String mFirebaseToken;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -76,7 +80,8 @@ public class LoginFragment extends Fragment {
             emailEdit.setText(email);
             EditText passwordEdit = getActivity().findViewById(R.id.ET_loginfragment_password);
             passwordEdit.setText(password);
-            onLoginClicked();
+//            logIn(email, password);
+            getFirebaseToken(email, password);
         }
     }
 
@@ -99,31 +104,36 @@ public class LoginFragment extends Fragment {
         }
 
         if (isValid) {
-            Credentials credentials = new Credentials
-                    .Builder(emailEdit.getText().toString(), passwordEdit.getText().toString())
-                    .build();
-
-            // Build the web service URL
-            Uri uri = new Uri.Builder()
-                    .scheme("https")
-                    .appendPath(getString(R.string.ep_base_url))
-                    .appendPath(getString(R.string.ep_login))
-                    .build();
-
-            // Build the JSONObject
-            JSONObject msg = credentials.asJSONObject();
-
-            mCredentials = credentials;
-
-            // Instantiate and execute the AsyncTask
-            // Feel free to add a handler for onPreExecution so that a progress bar
-            // is displayed or maybe disable buttons.
-            new SendPostAsyncTask.Builder(uri.toString(), msg)
-                    .onPreExecute(this::handleLoginOnPre)
-                    .onPostExecute(this::handleLoginOnPost)
-                    .onCancelled(this::handleErrorsInTask)
-                    .build().execute();
+//            logIn(emailEdit.getText().toString(), passwordEdit.getText().toString());
+            getFirebaseToken(emailEdit.getText().toString(), passwordEdit.getText().toString());
         }
+    }
+
+    private void logIn(final String email, final String password) {
+        Credentials credentials = new Credentials
+                .Builder(email, password)
+                .build();
+
+        // Build the web service URL
+        Uri uri = new Uri.Builder()
+                .scheme("https")
+                .appendPath(getString(R.string.ep_base_url))
+                .appendPath(getString(R.string.ep_login))
+                .build();
+
+        // Build the JSONObject
+        JSONObject msg = credentials.asJSONObject();
+
+        mCredentials = credentials;
+
+        // Instantiate and execute the AsyncTask
+        // Feel free to add a handler for onPreExecution so that a progress bar
+        // is displayed or maybe disable buttons.
+        new SendPostAsyncTask.Builder(uri.toString(), msg)
+                .onPreExecute(this::handleLoginOnPre)
+                .onPostExecute(this::handleLoginOnPost)
+                .onCancelled(this::handleErrorsInTask)
+                .build().execute();
     }
 
     private void saveCredentials(final Credentials credentials) {
@@ -145,7 +155,7 @@ public class LoginFragment extends Fragment {
      * Handle the setup of the UI before the HTTP call to the webservice.
      */
     private void handleLoginOnPre() {
-        mListener.onWaitFragmentInteractionShow();
+
     }
 
     /**
@@ -189,6 +199,26 @@ public class LoginFragment extends Fragment {
      */
     private void handleErrorsInTask(String result) {
         Log.e("ASYNCT_TASK_ERROR", result);
+    }
+
+    private void getFirebaseToken(final String email, final String password) {
+        mListener.onWaitFragmentInteractionShow();
+
+        //add this app on this device to listen for the topic all
+        FirebaseMessaging.getInstance().subscribeToTopic("all");
+
+        // The call to getInstanceId happens asynchronously. Task is an onCompleteListenere
+        // similar to a promise in JS.
+        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(task -> {
+            if (!task.isSuccessful()) {
+                Log.w("FCM: ", mFirebaseToken);
+                mListener.onWaitFragmentInteractionHide();
+                return;
+            }
+
+            // The helper method that initiates login service
+            logIn(email, password);
+        });
     }
 
     public interface OnFragmentInteractionListener
