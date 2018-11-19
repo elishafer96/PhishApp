@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +19,8 @@ import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Objects;
 
 import tcss450.uw.edu.phishapp.utils.MyFirebaseMessagingService;
 import tcss450.uw.edu.phishapp.utils.SendPostAsyncTask;
@@ -46,7 +49,7 @@ public class ChatFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
@@ -61,7 +64,7 @@ public class ChatFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        SharedPreferences prefs = getActivity().getSharedPreferences(
+        SharedPreferences prefs = Objects.requireNonNull(getActivity()).getSharedPreferences(
                 getString(R.string.keys_shared_prefs),
                 Context.MODE_PRIVATE);
 
@@ -118,14 +121,14 @@ public class ChatFragment extends Fragment {
             mFirebaseMessageReceiver = new FirebaseMessageReceiver();
         }
         IntentFilter iFilter = new IntentFilter(MyFirebaseMessagingService.RECEIVED_NEW_MESSAGE);
-        getActivity().registerReceiver(mFirebaseMessageReceiver, iFilter);
+        Objects.requireNonNull(getActivity()).registerReceiver(mFirebaseMessageReceiver, iFilter);
     }
 
     @Override
     public void onPause() {
         super.onPause();
         if (mFirebaseMessageReceiver != null) {
-            getActivity().unregisterReceiver(mFirebaseMessageReceiver);
+            Objects.requireNonNull(getActivity()).unregisterReceiver(mFirebaseMessageReceiver);
         }
     }
 
@@ -136,13 +139,13 @@ public class ChatFragment extends Fragment {
             Log.i("FCM Chat Frag", "start onReceive");
             if (intent.hasExtra("DATA")) {
                 String data = intent.getStringExtra("DATA");
-                JSONObject jOjb = null;
+                JSONObject jOjb;
                 try {
                     jOjb = new JSONObject(data);
                     if (jOjb.has("message") && jOjb.has("sender")) {
                         String sender = jOjb.getString("sender");
                         String msg = jOjb.getString("message");
-                        mMessageOutputTextView.append(sender + ":" + msg);
+                        mMessageOutputTextView.append(sender + ": " + msg);
                         mMessageOutputTextView.append(System.lineSeparator());
                         mMessageOutputTextView.append(System.lineSeparator());
                         Log.i("FCM Chat Frag", sender + " " + msg);
