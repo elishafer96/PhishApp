@@ -41,4 +41,6 @@
 
     <!-- Chat Fragment Strings -->
     <string name="message_hint">Write a message</string>
+
+    <string name="keys_intent_jwToken">jwtoken</string>
 </resources>

@@ -30,6 +30,7 @@ import java.util.List;
 import tcss450.uw.edu.phishapp.blog.BlogPost;
 import tcss450.uw.edu.phishapp.model.Credentials;
 import tcss450.uw.edu.phishapp.setlist.SetListPost;
+import tcss450.uw.edu.phishapp.utils.GetAsyncTask;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -42,6 +43,7 @@ public class HomeActivity extends AppCompatActivity
 
     private Credentials credentials;
     private String mEmail;
+    private String  mJWToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +84,8 @@ public class HomeActivity extends AppCompatActivity
                         .commit();
             }
         }
+
+        mJWToken = getIntent().getStringExtra(getString(R.string.keys_intent_jwToken));
     }
 
     @Override
@@ -142,6 +146,7 @@ public class HomeActivity extends AppCompatActivity
             new GetAsyncTask.Builder(uri.toString())
                     .onPreExecute(this::onWaitFragmentInteractionShow)
                     .onPostExecute(this::handleBlogGetOnPostExecute)
+                    .addHeaderField("authorization", mJWToken)
                     .build().execute();
         } else if (id == R.id.nav_setlists) {
             Uri uri = new Uri.Builder()
@@ -155,6 +160,7 @@ public class HomeActivity extends AppCompatActivity
             new GetAsyncTask.Builder(uri.toString())
                     .onPreExecute(this::onWaitFragmentInteractionShow)
                     .onPostExecute(this::handleSetListGetOnPostExecute)
+                    .addHeaderField("authorization", mJWToken)
                     .build().execute();
         } else if (id == R.id.nav_globalchat) {
             SharedPreferences prefs = getSharedPreferences(getString(R.string.keys_shared_prefs),

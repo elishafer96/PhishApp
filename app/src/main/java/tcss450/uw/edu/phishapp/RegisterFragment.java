@@ -154,11 +154,12 @@ public class RegisterFragment extends Fragment {
             Log.d("JSON result", result);
             JSONObject resultsJSON = new JSONObject(result);
             boolean success = resultsJSON.getBoolean("success");
+            String token = resultsJSON.getString("token");
 
             mListener.onWaitFragmentInteractionHide();
             if (success) {
                 // Login was successful. Inform the Activity so it can do its thing.
-                mListener.onRegisterAttempt(mCredentials);
+                mListener.onRegisterAttempt(mCredentials, token);
             } else {
                 // Login was unsuccessful. Don’t switch fragments and inform the user
                 ((EditText) getView().findViewById(R.id.ET_registerfragment_email))
@@ -188,6 +189,6 @@ public class RegisterFragment extends Fragment {
 
     public interface OnFragmentInteractionListener
             extends WaitFragment.OnFragmentInteractionListener {
-        void onRegisterAttempt(Credentials credentials);
+        void onRegisterAttempt(Credentials credentials, String jwToken);
     }
 }

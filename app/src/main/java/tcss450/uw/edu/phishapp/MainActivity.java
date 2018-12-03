@@ -43,21 +43,26 @@ public class MainActivity extends AppCompatActivity
         loadFragment(new RegisterFragment());
     }
 
-    @Override
-    public void onLoginAttempt(final Credentials credentials) {
+    private void login(final Credentials credentials, String jwtToken) {
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
 //        Bundle args = new Bundle();
 //        args.putSerializable(getString(R.string.credentials_key), credentials);
 //        intent.putExtra("args", args);
         intent.putExtra(getString(R.string.credentials_key), credentials);
         intent.putExtra(getString(R.string.keys_intent_notification_msg), mLoadFromChatNotification);
+        intent.putExtra(getString(R.string.keys_intent_jwToken), jwtToken);
         startActivity(intent);
         finish();
     }
 
     @Override
-    public void onRegisterAttempt(final Credentials credentials) {
-        onLoginAttempt(credentials);
+    public void onLoginAttempt(final Credentials credentials, final String jwtToken) {
+        login(credentials, jwtToken);
+    }
+
+    @Override
+    public void onRegisterAttempt(final Credentials credentials, final String jwtToken) {
+        login(credentials, jwtToken);
     }
 
     private void loadFragment(Fragment fragment) {

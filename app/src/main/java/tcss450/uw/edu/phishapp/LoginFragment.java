@@ -176,12 +176,13 @@ public class LoginFragment extends Fragment {
             Log.d("JSON result", result);
             JSONObject resultsJSON = new JSONObject(result);
             boolean success = resultsJSON.getBoolean("success");
+            String token = resultsJSON.getString("token");
 
             mListener.onWaitFragmentInteractionHide();
             if (success) {
                 // Login was successful. Inform the Activity so it can do its thing.
                 saveCredentials(mCredentials);
-                mListener.onLoginAttempt(mCredentials);
+                mListener.onLoginAttempt(mCredentials, token);
                 return;
             } else {
                 // Login was unsuccessful. Don’t switch fragments and inform the user
@@ -226,7 +227,7 @@ public class LoginFragment extends Fragment {
     public interface OnFragmentInteractionListener
             extends WaitFragment.OnFragmentInteractionListener {
         void onRegisterAttempt();
-        void onLoginAttempt(Credentials credentials);
+        void onLoginAttempt(Credentials credentials, final String jwToken);
     }
 
 }
