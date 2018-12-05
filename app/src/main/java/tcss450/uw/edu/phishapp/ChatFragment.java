@@ -40,6 +40,7 @@ public class ChatFragment extends Fragment {
 
     private String mEmail;
     private String mSendUrl;
+    private String mJwToken;
 
     private FirebaseMessageReceiver mFirebaseMessageReceiver;
 
@@ -56,6 +57,7 @@ public class ChatFragment extends Fragment {
 
         mMessageOutputTextView = view.findViewById(R.id.text_chat_message_display);
         mMessageInputEditText = view.findViewById(R.id.edit_chat_message_input);
+        mJwToken = getActivity().getIntent().getStringExtra(getString(R.string.keys_intent_jwToken));
         view.findViewById(R.id.button_chat_send).setOnClickListener(this::handleSendClick);
 
         return view;
@@ -98,6 +100,7 @@ public class ChatFragment extends Fragment {
         new SendPostAsyncTask.Builder(mSendUrl, messageJson)
                 .onPostExecute(this::endOfSendMsgTask)
                 .onCancelled(error -> Log.e(TAG, error))
+                .addHeaderField("authorization", mJwToken)
                 .build().execute();
     }
 
